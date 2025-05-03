@@ -1,16 +1,19 @@
 import requests
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
-from random import randint
+
+URL_LUDI = "https://world79.spcs.bio/sz/foto-i-kartinki/ljudi"
+URL_ANIME = "https://world79.spcs.bio/sz/foto-i-kartinki/anime"
+URL_ZNAMENITOSTI = "https://world79.spcs.bio/sz/foto-i-kartinki/znamenitosti"
+URL_GAME = "https://world79.spcs.bio/sz/foto-i-kartinki/iz-igr"
 
 class Parser():
-	def __init__(self) -> None:	
+	def __init__(self, url:str) -> None:	
 		self._user_agent = UserAgent().random
 		self._headers = {'User-Agent':self._user_agent}	
 		self._cookies = {}
-		self.URL_SRC = "https://world79.spcs.bio/sz/foto-i-kartinki/ljudi"
+		self.URL_SRC = url
 		self.COUNT_FILES_IN_ONCE_PAGE = 25
-
 
 	def _build_url_page(self, number_page:int) -> str:
 		return f"{self.URL_SRC}/p{number_page}/"

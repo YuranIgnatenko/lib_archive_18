@@ -19,12 +19,11 @@ pip install .
 ## Пример использования
 
 ```python
-# импорт парсера
-from lib_archive_18 import Parser
+import lib_archive_18.parser as lib
 
-# создание парсера
-parser = Parser()
+url = lib.URL_GAME
 
+parser = lib.Parser(url)
 print(parser.get_count_all_files())
 print(parser.get_count_pages())
 print(parser.get_files(2))
