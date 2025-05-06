@@ -34,9 +34,9 @@ class Parser():
 		return f"{self.URL_SRC}p{number_page}/"
 	
 	def _get_soup(self, url:str) -> BeautifulSoup:
-		print("get_soup ++++++++", url, self._headers, self._cookies)
 		response = requests.get(url, headers=self._headers)
 		soup = BeautifulSoup(response.text, 'html.parser')
+		# TODO: for parsing 18+ content
 		# if "Если вам менее 18 лет - нажмите НЕТ." in f"{soup}":
 		# 	hrefs = [link.get('href') for link in soup.find_all("a")]
 		# 	for href in hrefs:
