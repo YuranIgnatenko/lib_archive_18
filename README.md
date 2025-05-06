@@ -31,3 +31,15 @@ print(parser.get_files(2))
 for file in parser.get_files_iterator(10,2):
 	print(file)
 ```
+
+## Асинхроннное получение случайной картинки
+``` python
+async def main():
+	parser = lib.Parser(url)
+	res = await parser.get_random_file()
+	if res:
+		print(f"\n{res}\n")
+
+asyncio.run(main())
+```
+
